@@ -33,10 +33,13 @@ const timeBlocks = [
 
 let html = "";
 
+// ! fill in times and add event listeners to all times
+
 for (let day in timeTable) {
     html += `<div class=${timeTable[day]}><br>${timeTable[day]}<br><br></div>`;
+    const shortDay = timeTable[day].substring(0, 2);
     for (let time in timeBlocks) {
-        html += `${timeBlocks[time]} `;
+        html += `<div class=${shortDay}${timeBlocks[time]}>${timeBlocks[time]}</div>`;
         if ((+time + 1) % 4 == 0) html += "<br><br>";
     }
 }
